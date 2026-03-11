@@ -9,8 +9,10 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // 2. コンポーネントに `async` をつけるのが最大のポイント！
 export default async function PostsPage() {
+
+
   // ★ ここで意図的に15秒待機させます！
-  await sleep(15000);
+  await sleep(6000);
   
   // 3. サーバー側でデータを fetch する
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
