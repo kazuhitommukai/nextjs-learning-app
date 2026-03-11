@@ -13,7 +13,10 @@ export default async function PostsPage() {
 
   // ★ ここで意図的に15秒待機させます！
   await sleep(6000);
-  
+
+  // ★ ここで意図的にエラーを発生させます！
+  throw new Error("意図的なデータベース接続エラー！");
+
   // 3. サーバー側でデータを fetch する
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts: Post[] = await res.json();
