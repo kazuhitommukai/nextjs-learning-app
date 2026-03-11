@@ -40,6 +40,12 @@ export default function RootLayout({
                 About
               </Link>
             </li>
+            {/* app/layout.tsx のナビゲーション部分に以下を追加 */}
+            <li> 
+              <Link href="/posts" className="text-blue-500 hover:underline">
+                Posts
+              </Link>
+            </li>
           </ul>
         </nav>
         {children}
