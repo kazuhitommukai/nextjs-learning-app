@@ -1,0 +1,223 @@
+openapi: 3.0.3
+info:
+  title: そば辞典 API
+  description: |
+    そばぽ（SOBAPORTAL MEDIA）のそば辞典機能で使用するAPI仕様。
+    フロントエンド `/soba-dictionary` 配下のページが必要とするデータを提供する。
+
+    ## 画面とAPI対応表
+    | 画面 | 使用API |
+    |---|---|
+    | トップページ (`/soba-dictionary`) | `GET /rows`, `GET /terms/random` |
+    | かな別一覧 (`/soba-dictionary/[kana]`) | `GET /terms`, `GET /rows` |
+  version: 1.0.0
+
+servers:
+  - url: /api/soba-dictionary
+    description: Next.js API Routes
+
+tags:
+  - name: 用語 (Terms)
+    description: そば用語の取得
+  - name: 行・かな (Rows)
+    description: 五十音の行・かな別の情報取得
+
+paths:
+  /terms:
+    get:
+      tags: [用語 (Terms)]
+      summary: 用語一覧を取得
+      description: |
+        かなで絞り込んだ用語一覧を返す。
+        `/soba-dictionary/[kana]` ページの用語リスト表示に使用。
+      parameters:
+        - name: kana
+          in: query
+          required: true
+          description: この文字から始まる読みの用語に絞り込む
+          schema:
+            type: string
+          example: あ
+        - name: limit
+          in: query
+          description: 取得件数上限（デフォルト: 50, 最大: 100）
+          schema:
+            type: integer
+            default: 50
+            minimum: 1
+            maximum: 100
+        - name: offset
+          in: query
+          description: 取得開始位置
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TermListResponse"
+              example:
+                terms:
+                  - id: izumo-soba
+                    reading: いずもそば
+                    term: 出雲蕎麦
+                    description: 島根県出雲地方の郷土料理。殻ごと挽いたそば粉を使用し、黒っぽい色と強い香りが特徴。
+                    imageUrl: null
+                total: 5
+                limit: 50
+                offset: 0
+
+  /terms/random:
+    get:
+      tags: [用語 (Terms)]
+      summary: ランダムに用語を1件取得
+      description: |
+        トップページの「本日のそば辞典」モーダル表示に使用。
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SobaTerm"
+              example:
+                id: izumo-soba
+                reading: いずもそば
+                term: 出雲蕎麦
+                description: 島根県出雲地方の郷土料理。殻ごと挽いたそば粉を使用し、黒っぽい色と強い香りが特徴。
+                imageUrl: null
+
+  /rows:
+    get:
+      tags: [行・かな (Rows)]
+      summary: 全行一覧（かな別の用語数付き）を取得
+      description: |
+        五十音の全行とそれぞれのかな、各かなの用語数、総用語数を返す。
+
+        **使用箇所:**
+        - トップページ: かなグリッド＋統計カード（totalTermCount）
+        - かな別一覧ページ: サイドバーナビゲーション
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RowListResponse"
+              example:
+                rows:
+                  - row: あ行
+                    kanaList:
+                      - kana: あ
+                        count: 5
+                      - kana: い
+                        count: 5
+                      - kana: う
+                        count: 5
+                      - kana: え
+                        count: 5
+                      - kana: お
+                        count: 5
+                  - row: か行
+                    kanaList:
+                      - kana: か
+                        count: 5
+                      - kana: き
+                        count: 5
+                      - kana: く
+                        count: 5
+                      - kana: け
+                        count: 1
+                      - kana: こ
+                        count: 5
+                totalTermCount: 96
+
+components:
+  schemas:
+    SobaTerm:
+      type: object
+      required: [id, reading, term, description]
+      properties:
+        id:
+          type: string
+          description: 用語の一意識別子（スラッグ形式）
+          example: izumo-soba
+        reading:
+          type: string
+          description: 用語の読み（ひらがな）
+          example: いずもそば
+        term:
+          type: string
+          description: 用語名（漢字・カタカナ表記）
+          example: 出雲蕎麦
+        description:
+          type: string
+          description: 用語の説明文
+          example: 島根県出雲地方の郷土料理。殻ごと挽いたそば粉を使用し、黒っぽい色と強い香りが特徴。
+        imageUrl:
+          type: string
+          nullable: true
+          description: 用語に関連する画像URL（無い場合はnull）
+          example: https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=400&h=400&fit=crop
+
+    TermListResponse:
+      type: object
+      required: [terms, total]
+      properties:
+        terms:
+          type: array
+          items:
+            $ref: "#/components/schemas/SobaTerm"
+        total:
+          type: integer
+          description: フィルタ条件に合致する総件数
+          example: 5
+        limit:
+          type: integer
+          example: 50
+        offset:
+          type: integer
+          example: 0
+
+    KanaCount:
+      type: object
+      required: [kana, count]
+      properties:
+        kana:
+          type: string
+          description: かな文字
+          example: あ
+        count:
+          type: integer
+          description: そのかなから始まる用語数
+          example: 5
+
+    RowDetail:
+      type: object
+      required: [row, kanaList]
+      properties:
+        row:
+          type: string
+          description: 行名
+          example: あ行
+        kanaList:
+          type: array
+          items:
+            $ref: "#/components/schemas/KanaCount"
+
+    RowListResponse:
+      type: object
+      required: [rows, totalTermCount]
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: "#/components/schemas/RowDetail"
+        totalTermCount:
+          type: integer
+          description: 全用語数
+          example: 96
