@@ -1,15 +1,19 @@
+// components/ProfileCard.tsx
 
-export default function ProfileCard() {
-  // 部品の中で使う変数
-  const userName = "ジロウ";
-  const age = 30;
+// 1. 受け取るデータの設計図（型）を作る
+type ProfileCardProps = {
+  userName: string; // 文字列
+  age: number;      // 数値
+  hobby: string;    // 文字列
+};
 
+// 2. 関数の引数で { userName, age, hobby } を受け取る
+// （関数の中の const userName = ... はもう不要になります！）
+export default function ProfileCard({ userName, age, hobby }: ProfileCardProps) {
   return (
-    <div className="p-4 border rounded">
-
-            <p className="mt-33 text-gray-600">趣味は、読書と映画観賞です。</p>
-            <p className="mt-33 text-gray-600">名前は{userName}、年齢は{age}歳です。</p>
-
+    <div className="p-4 border rounded mb-4">
+      <p className="text-gray-600">趣味は、{hobby}です。</p>
+      <p className="text-gray-600">名前は{userName}、年齢は{age}歳です。</p>
     </div>
   );
 }
