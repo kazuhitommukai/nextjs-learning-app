@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProfileCard from "@/components/ProfileCard"; // 1. 部品を読み込む
+import ProfileCard from "@/app/profile/_components/ProfileCard"; // 1. 部品を読み込む
 
 export default function ProfilePage() {
     return (

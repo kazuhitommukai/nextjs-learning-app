@@ -1,4 +1,4 @@
-import AlertButton from "@/components/AlertButton"; // 作成したボタンをインポート
+import AlertButton from "@/components/ui/AlertButton"; // 作成したボタンをインポート
 
 export default function AboutPage() {
   return (
