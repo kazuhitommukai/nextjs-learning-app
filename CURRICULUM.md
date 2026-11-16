@@ -14,10 +14,10 @@
 ### Phase 1：画面表示とページ作成の基礎（ゼロからの第一歩）
 - [x] **Lesson 1：JSXの基本と最初のページ作成**（HTMLとの違い・App Routerの仕組み）
 - [x] **Lesson 2：Tailwind CSSで見た目を作ろう**（余白・色・文字サイズ・Flexboxの基礎）
-- [ ] **Lesson 3：ページ間の移動と共通レイアウト**（`<Link>` と `layout.tsx` の役割） ← **★現在ココ！**
+- [x] **Lesson 3：ページ間の移動と共通レイアウト**（`<Link>` と `layout.tsx` の役割）
 
 ### Phase 2：コンポーネント分割とデータの受け渡し
-- [ ] **Lesson 4：コンポーネントの切り出し**（UIを部品化して別ファイルに分ける）
+- [ ] **Lesson 4：コンポーネントの切り出し**（UIを部品化して別ファイルに分ける） ← **★現在ココ！**
 - [ ] **Lesson 5：Props（プロップス）とTypeScriptの型定義**（親から子へデータを渡して使い回す）
 
 ### Phase 3：動きのあるUIを作る（Client ComponentとState）
@@ -39,4 +39,5 @@
 | :--- | :--- | :--- |
 | Lesson 1 | 合格 (100点) | `app/profile/page.tsx` の作成、関数コンポーネント定義、JSXの `{}` による変数埋め込みすべて完璧！ |
 | Lesson 2 | 合格 (100点) | `className` を使ったカード装飾・文字サイズ・色・余白の指定がバッチリ！ |
-| Lesson 3 | 挑戦中 | - |
+| Lesson 3 | 合格 (100点) | `layout.tsx` へのナビゲーション追加と `profile/page.tsx` からの `<Link>` 遷移が完璧！Phase 1 制覇！ |
+| Lesson 4 | 挑戦中 | - |

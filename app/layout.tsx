@@ -40,6 +40,11 @@ export default function RootLayout({
                 About
               </Link>
             </li>
+            <li>
+              <Link href="/profile" className="text-blue-500 hover:underline">
+                Profile
+              </Link>
+            </li>
           </ul>
         </nav>
         {children}
