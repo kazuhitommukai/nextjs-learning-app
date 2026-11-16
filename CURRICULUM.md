@@ -21,8 +21,8 @@
 - [x] **Lesson 5：Props（プロップス）とTypeScriptの型定義**（親から子へデータを渡して使い回す）
 
 ### Phase 3：動きのあるUIを作る（Client ComponentとState）
-- [ ] **Lesson 6：Server Component と Client Component**（`"use client"` とクリックイベント `onClick`） ← **★現在ココ！**
-- [ ] **Lesson 7：`useState` で画面の状態を変える**（カウンター・開閉トグルなど）
+- [x] **Lesson 6：Server Component と Client Component**（`"use client"` とクリックイベント `onClick`）
+- [ ] **Lesson 7：`useState` で画面の状態を変える**（カウンター・開閉トグルなど） ← **★現在ココ！**
 - [ ] **Lesson 8：条件分岐とリスト表示**（三項演算子/`&&` での出し分け、配列の `.map()` と `key`）
 - [ ] **Lesson 9：フォーム入力の扱い方**（テキスト入力 `input` の値取得と追加処理）
 
@@ -42,4 +42,5 @@
 | Lesson 3 | 合格 (100点) | `layout.tsx` へのナビゲーション追加と `profile/page.tsx` からの `<Link>` 遷移が完璧！Phase 1 制覇！ |
 | Lesson 4 | 合格 (100点) | `components/ProfileCard.tsx` への切り出しと `page.tsx` でのインポート・複数配置が完璧！ |
 | Lesson 5 | 合格 (100点) | `type ProfileCardProps` の型定義と分割代入、親からのProps受け渡しがバッチリ！Phase 2 制覇！ |
-| Lesson 6 | 挑戦中 | - |
+| Lesson 6 | 合格 (100点) | `"use client"` の宣言と `onClick={() => alert(...)}` によるイベント処理が完璧！ |
+| Lesson 7 | 挑戦中 | - |
