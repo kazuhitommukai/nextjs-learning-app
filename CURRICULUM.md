@@ -17,8 +17,8 @@
 - [x] **Lesson 3：ページ間の移動と共通レイアウト**（`<Link>` と `layout.tsx` の役割）
 
 ### Phase 2：コンポーネント分割とデータの受け渡し
-- [ ] **Lesson 4：コンポーネントの切り出し**（UIを部品化して別ファイルに分ける） ← **★現在ココ！**
-- [ ] **Lesson 5：Props（プロップス）とTypeScriptの型定義**（親から子へデータを渡して使い回す）
+- [x] **Lesson 4：コンポーネントの切り出し**（UIを部品化して別ファイルに分ける）
+- [ ] **Lesson 5：Props（プロップス）とTypeScriptの型定義**（親から子へデータを渡して使い回す） ← **★現在ココ！**
 
 ### Phase 3：動きのあるUIを作る（Client ComponentとState）
 - [ ] **Lesson 6：Server Component と Client Component**（`"use client"` とクリックイベント `onClick`）
@@ -40,4 +40,5 @@
 | Lesson 1 | 合格 (100点) | `app/profile/page.tsx` の作成、関数コンポーネント定義、JSXの `{}` による変数埋め込みすべて完璧！ |
 | Lesson 2 | 合格 (100点) | `className` を使ったカード装飾・文字サイズ・色・余白の指定がバッチリ！ |
 | Lesson 3 | 合格 (100点) | `layout.tsx` へのナビゲーション追加と `profile/page.tsx` からの `<Link>` 遷移が完璧！Phase 1 制覇！ |
-| Lesson 4 | 挑戦中 | - |
+| Lesson 4 | 合格 (100点) | `components/ProfileCard.tsx` への切り出しと `page.tsx` でのインポート・複数配置が完璧！ |
+| Lesson 5 | 挑戦中 | - |
