@@ -28,8 +28,8 @@
 
 ### Phase 4：Next.jsの実践機能と総仕上げ
 - [x] **Lesson 10：動的ルーティング**（`/users/[id]` のようなURLパラメータの扱い）
-- [ ] **Lesson 11：APIからのデータ取得（非同期処理）**（`async/await` と `fetch` で外部データを表示） ← **★現在ココ！**
-- [ ] **Lesson 12：卒業制作（ミニアプリ開発）**（これまでの知識を組み合わせて1つの画面を作る）
+- [x] **Lesson 11：APIからのデータ取得（非同期処理）**（`async/await` と `fetch` で外部データを表示）
+- [ ] **Lesson 12：卒業制作（ミニアプリ開発）**（これまでの知識を組み合わせて1つの画面を作る） ← **★現在ココ！（最終課題）**
 
 ---
 
@@ -47,4 +47,5 @@
 | Lesson 8 | 合格 (100点) | 三項演算子（`? :`）による条件分岐と、`.map()` + `key` を使った配列データのリスト表示が完璧！ |
 | Lesson 9 | 合格 (100点) | `useState` と `<input>` の `value` / `onChange` 連動がバッチリ！Phase 3 制覇！ |
 | Lesson 10 | 合格 (100点) | `app/profile/[id]/page.tsx` の作成と `await params` による動的パラメータ取得が完璧！ |
-| Lesson 11 | 挑戦中 | - |
+| Lesson 11 | 合格 (100点) | `fetch` と `await res.json()` による外部APIからのデータ取得と `ApiUser` 型定義がバッチリ！ |
+| Lesson 12 | 挑戦中 | - |
