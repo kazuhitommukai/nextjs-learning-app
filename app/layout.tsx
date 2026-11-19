@@ -45,6 +45,11 @@ export default function RootLayout({
                 Profile
               </Link>
             </li>
+            <li>
+              <Link href="/todos" className="text-blue-500 hover:underline">
+                Todos
+              </Link>
+            </li>
           </ul>
         </nav>
         {children}
